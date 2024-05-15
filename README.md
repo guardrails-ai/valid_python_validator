@@ -17,9 +17,6 @@ This validator checks if a string is valid Python syntax by trying to parse the 
 * Dependencies:
 	- guardrails-ai>=0.4.0
 
-* Foundation model access keys:
-	- OPENAI_API_KEY
-
 ## Installation
 
 ```bash
