@@ -10,7 +10,7 @@
 ## Description
 
 ### Intended Use
-This validator checks if a string is valid Python syntax by trying to parse the string into an abstract syntax tree. Note that this validator doesn’t check for things such as correct argument names, etc.
+This validator checks whether a string adheres to valid Python syntax by attempting to parse it into an abstract syntax tree. Please note that it does not examine semantic elements such as correct argument names, type correctness, etc.
 
 ### Requirements
 
@@ -20,7 +20,7 @@ This validator checks if a string is valid Python syntax by trying to parse the 
 ## Installation
 
 ```bash
-guardrails hub install hub://reflex/valid_python
+$ guardrails hub install hub://reflex/valid_python
 ```
 
 ## Usage Examples
@@ -35,7 +35,9 @@ from guardrails.hub import ValidPython
 from guardrails import Guard
 
 # Setup Guard
-guard = Guard().use(ValidPython, on_fail="exception")
+guard = Guard().use(
+    ValidPython, on_fail="exception"
+)
 
 # Correct python
 correct_python = """
@@ -78,7 +80,7 @@ Initializes a new instance of the ValidPython class.
 </ul>
 <br/>
 
-**`validate(self, value, metadata) → ValidationResult`**
+**`validate(self, value, metadata) -> ValidationResult`**
 <ul>
 Validates the given `value` using the rules defined in this validator, relying on the `metadata` provided to customize the validation process. This method is automatically invoked by `guard.parse(...)`, ensuring the validation logic is applied to the input data.
 
@@ -88,6 +90,6 @@ Note:
 2. When invoking `guard.parse(...)`, ensure to pass the appropriate `metadata` dictionary that includes keys and values required by this validator. If `guard` is associated with multiple validators, combine all necessary metadata into a single dictionary.
 
 **Parameters**
-- **`value`** *(Any):* The input value to validate.
-- **`metadata`** *(dict):* A dictionary containing metadata required for validation. No additional metadata keys are needed for this validator.
+- **`value`** *(Any)*: The input value to validate.
+- **`metadata`** *(dict)*: A dictionary containing metadata required for validation. No additional metadata keys are needed for this validator.
 </ul>
